@@ -3,6 +3,8 @@
 
 <configuration>
     <typeAliases>
+    	<!-- 별칭 -->
+    	<typeAlias alias="PersonVo" type="com.javaex.vo.PersonVo"></typeAlias>
     </typeAliases>
 
     <mappers>
