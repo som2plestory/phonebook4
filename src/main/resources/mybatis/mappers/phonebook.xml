@@ -34,7 +34,7 @@
 	</select>
 	
 	
-	<insert id="personInsert" parameterType="com.javaex.vo.PersonVo">
+	<insert id="personInsert" parameterType="PersonVo">
 		<![CDATA[
 			insert into person 
 			values (seq_person_id.nextval, 
@@ -44,14 +44,14 @@
 		]]>
 	</insert>
 	
-	<delete id="personDelete" parameterType="com.javaex.vo.PersonVo">
+	<delete id="personDelete" parameterType="PersonVo">
 		<![CDATA[
 			delete from person
 			where person_id = #{personId}
 		]]>
 	</delete>
 	
-	<select id="getPerson" parameterType="int" resultType="resultMapPersonVo">
+	<select id="getPerson" parameterType="int" resultMap="resultMapPersonVo">
 		<![CDATA[
 			select  person_id,
 					name,
@@ -62,7 +62,7 @@
 		]]>
 	</select>
 	
-	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
+	<update id="personUpdate" parameterType="PersonVo">
 		<![CDATA[
 			update person
 			set name = #{name},
