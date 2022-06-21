@@ -37,23 +37,46 @@ public class PhoneDao {
 		System.out.println("personVo: "+personVo);
 		sqlSession.insert("phonebook.personInsert", personVo);
 	}
-
+	
+	
+	// 사람 추가(map을 사용하는 가상의 상황: 문법설명)
+	/*
+	public void personInsert2(Map<String, String> pMap) {
+		System.out.println("PhoneDao>personInsert2()");
+		sqlSession.insert("phonebook.personInsert2", pMap);
+	}
+	*/
+	
 	
 	// 사람 삭제
-	public void personDelete(int personId) {
-		System.out.println("personId: "+personId);
-		sqlSession.delete("phonebook.personDelete", personId);
+	public void personDelete(int no) {
+		System.out.println("personId: "+no);
+		
+		sqlSession.delete("phonebook.personDelete", no);
 	}
 
 	
 	// 1명 정보 가져오기
-	public PersonVo getPerson(int personId) {
-		System.out.println("personId: "+personId);
-		PersonVo personVo = sqlSession.selectOne("phonebook.getPerson", personId);
+	public PersonVo getPerson(int no) {
+		System.out.println("personId: "+no);
+		PersonVo personVo = sqlSession.selectOne("phonebook.getPerson", no);
 		
 		return personVo;
 	}
 
+	
+	// 1명 정보 가져오기 (map을 사용하는 가상의 상황: 문법설명)
+	/*
+	public Map<String, Object> getPerson2(int no){
+		System.out.println("no: "+no);
+		
+		Map<String, Object> pMap = sqlSession.selectOne("phonebook.getPerson2", no);
+		
+		return pMap;
+	}
+	*/
+	
+	
 	// 사람 수정
 	public void personUpdate(PersonVo personVo) {
 		System.out.println("personVo: "+personVo);

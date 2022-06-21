@@ -33,7 +33,6 @@
 		]]>
 	</select>
 	
-	
 	<insert id="personInsert" parameterType="PersonVo">
 		<![CDATA[
 			insert into person 
@@ -44,7 +43,20 @@
 		]]>
 	</insert>
 	
-	<delete id="personDelete" parameterType="PersonVo">
+	<!-- 전화번호 저장 (map을 사용하는 가상의 상황: 문법설명) -->
+	<!-- 
+	<insert id="personInsert2" parameterType="map">
+		<![CDATA[
+			insert into person 
+			values (seq_person_id.nextval, 
+					#{name}, 
+					#{hp}, 
+					#{company})
+		]]>
+	</insert>
+	 -->
+	
+	<delete id="personDelete" parameterType="int">
 		<![CDATA[
 			delete from person
 			where person_id = #{personId}
@@ -61,6 +73,21 @@
 			where person_id = #{personId}
 		]]>
 	</select>
+	
+	<!-- 1명정보 가져오기 (회원정보폼) map을 사용하는 가상의 상황: 문법설명 -->
+	<!-- 
+	<select id="getPerson2" parameterType="int" resultMap="map">
+		<![CDATA[
+			select  person_id,
+					name,
+					hp,
+					company
+			from person
+			where person_id = #{no}
+		]]>
+	</select>
+	 -->
+	 
 	
 	<update id="personUpdate" parameterType="PersonVo">
 		<![CDATA[
